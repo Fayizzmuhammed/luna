@@ -7,8 +7,25 @@
 <meta name="description" content="Only exclusive members get the free bonus. Join now.">
 <meta name="theme-color" content="#0e0d0b">
 <!-- Warm up the Telegram connection before the tap -->
-<link rel="preconnect" href="https://t.me">
-<link rel="dns-prefetch" href="https://t.me">
+<link rel="preconnect" href="https://telegram.dog">
+<link rel="dns-prefetch" href="https://telegram.dog">
+<link rel="preconnect" href="https://connect.facebook.net">
+<!-- Meta Pixel Code (async – does not block the page) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1391162149856036');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1391162149856036&ev=PageView&noscript=1"></noscript>
+<!-- End Meta Pixel Code -->
 <style>
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
@@ -24,6 +41,8 @@ p{margin:0;font-size:clamp(16px,2.2vw,20px);line-height:1.5;color:#c9c1b0;max-wi
 .cta:hover{transform:translateY(-2px) scale(1.02)}
 .cta:active{transform:scale(.97)}
 .cta:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.alt{margin-top:-10px;font-size:14px;font-weight:700;color:#a39a88;text-decoration:underline;text-underline-offset:3px;padding:8px}
+.alt:hover{color:#f5f1e8}
 .ok{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#a39a88}
 .bob{animation:bob 1.2s ease-in-out infinite}
 .nudge{animation:nudge 1s ease-in-out infinite}
@@ -49,15 +68,35 @@ p{margin:0;font-size:clamp(16px,2.2vw,20px);line-height:1.5;color:#c9c1b0;max-wi
   </div>
 
   <!-- ▼▼▼ PUT YOUR TELEGRAM LINK HERE ▼▼▼ -->
-  <a class="cta" href="https://t.me/YOUR_TELEGRAM_LINK">
+  <a class="cta" href="tg://join?invite=CBZMaj4t9q9mOTY1">
     Join Now
     <svg class="nudge" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
   </a>
+
+  <a class="alt" href="https://telegram.dog/+CBZMaj4t9q9mOTY1">Trouble joining? Open in browser</a>
 
   <div class="ok">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7ccf8a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
     Bonus included free for every member
   </div>
 </main>
+<script>
+/* Join Now opens the Telegram app directly. Meta "Lead" fires on first touch.
+   If the app doesn't open (e.g. Telegram not installed), after 1.5s the page
+   quietly goes to the t.me invite page instead – no extra buttons shown. */
+(function(){
+  var a=document.querySelector('.cta'),sent=false,left=false;
+  var web='https://telegram.dog/+CBZMaj4t9q9mOTY1';
+  function lead(){if(sent)return;sent=true;try{fbq('track','Lead');}catch(e){}}
+  addEventListener('pagehide',function(){left=true});
+  document.addEventListener('visibilitychange',function(){if(document.hidden)left=true});
+  a.addEventListener('pointerdown',lead,{passive:true});
+  document.querySelector('.alt').addEventListener('pointerdown',lead,{passive:true});
+  a.addEventListener('click',function(){
+    lead();left=false;
+    setTimeout(function(){if(!left&&!document.hidden)location.href=web;},1500);
+  });
+})();
+</script>
 </body>
 </html>
